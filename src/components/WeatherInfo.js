@@ -26,20 +26,21 @@ function WeatherInfo({ currentCity }) {
     }
     return (
         <>
-            <h1>Weather Info</h1>
             <div className="weatherInfoBox">
                 {forecast.map((day) => {
                     return <div key={day.date} className="dayInfo">
-                        <span>{day.day}</span>
+                        <span className="dayName">{day.day}</span>
+                        <br />
                         <div className="weatherImg">
                             <img alt="Weather Status" src={day.icon}></img>
                         </div>
-                        <div className="status">
-                            <span className="min">{float2int(day.min)}</span>
-                            <span className="max">{float2int(day.max)}</span>
-                        </div>
                         <br />
-                        <div>{day.date}</div>
+                        <div className="status">
+                            <span className="min">{float2int(day.min)}&#176;</span>
+                            <span className="max">{float2int(day.max)}&#176;</span>
+                        </div>
+                        <hr />
+                        <div className="dayDate">{day.date}</div>
                     </div>
                 })}
             </div>
